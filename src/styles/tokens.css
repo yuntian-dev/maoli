@@ -1,0 +1,56 @@
+/**
+ * 设计系统唯一来源 —— 全项目禁止出现 hex 字面量，一律走这里的变量。
+ * 规范见 PRD 第 6.2 / 6.3 / 6.4 节。
+ */
+
+:root {
+  /* ---- 纸 ---- */
+  --paper: #f5efe0;
+  --paper-blank: #ede4ce;
+  --paper-deep: #e4d8bc;
+  --paper-card: #faf5e8;
+
+  /* ---- 墨 ---- */
+  --ink: #2e2a26;
+  --ink-soft: #6b6257;
+  --ink-faint: #a79c8c;
+
+  /* ---- 强调 ---- */
+  --red: #c8412f;
+  --red-deep: #a8321f;
+  --gray-sat: #9a9188;
+  --green: #7a8b6f;
+  --line: #d9cdb4;
+
+  /* ---- 字体 ---- */
+  --font-serif: 'Songti SC', 'Source Han Serif SC', 'Noto Serif SC', Georgia,
+    'Times New Roman', serif;
+  --font-hand: 'ZCOOL KuaiLe', 'Long Cang', 'Kaiti SC', 'STKaiti', cursive,
+    serif;
+  --font-sans: 'PingFang SC', 'Hiragino Sans GB', -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* ---- 字号 ---- */
+  --fs-date: 30px;
+  --fs-lunar: 11px;
+  --fs-note: 14px;
+  --fs-body: 13px;
+  --fs-small: 12px;
+
+  /* ---- 间距 ---- */
+  --gap-cell: 1px;
+  --pad-page: 22px;
+
+  /* ---- 阴影 ---- */
+  --shadow-page: 0 2px 4px rgba(0, 0, 0, 0.06), 0 12px 32px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.14);
+
+  /* ---- 动效 ---- */
+  --dur-flip: 200ms;
+  --dur-panel: 260ms;
+  --dur-tear: 600ms;
+  --dur-card: 320ms;
+  --dur-pop: 180ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}

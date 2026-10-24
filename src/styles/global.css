@@ -1,0 +1,137 @@
+@import 'tailwindcss';
+@import './tokens.css';
+
+@theme {
+  --color-paper: var(--paper);
+  --color-paper-blank: var(--paper-blank);
+  --color-paper-deep: var(--paper-deep);
+  --color-paper-card: var(--paper-card);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-red: var(--red);
+  --color-red-deep: var(--red-deep);
+  --color-gray-sat: var(--gray-sat);
+  --color-green: var(--green);
+  --color-line: var(--line);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  color: inherit;
+}
+
+/* ---- 纸纹：双层 feTurbulence + 暗角，无位图 ---- */
+.paper-grain {
+  position: relative;
+  isolation: isolate;
+}
+
+.paper-grain::before,
+.paper-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.paper-grain::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+  opacity: 0.05;
+}
+
+.paper-grain::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23f)' opacity='0.02'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+  opacity: 0.02;
+}
+
+.paper-grain > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* 暗角 */
+.vignette::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 55%,
+    rgba(0, 0, 0, 0.06) 100%
+  );
+}
+
+/* ---- 手写体 fallback：字体没加载时降级到系统楷体，版式不塌 ---- */
+.font-hand {
+  font-family: var(--font-hand);
+  letter-spacing: 0.5px;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* ---- 照片褪色 ---- */
+.photo-faded {
+  filter: saturate(0.92) contrast(0.98);
+}
+
+/* ---- 滚动条 ---- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-faint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
