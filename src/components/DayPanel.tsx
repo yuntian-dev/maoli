@@ -10,12 +10,10 @@ import {
   TAGS,
   type DayRecord,
   type MoodKey,
-  type Pet,
 } from '../types';
 
 interface Props {
   date: string | null;
-  pet: Pet;
   record?: DayRecord;
   onClose: () => void;
   onSave: (rec: DayRecord) => void;
@@ -24,7 +22,6 @@ interface Props {
 
 export function DayPanel({
   date,
-  pet,
   record,
   onClose,
   onSave,
@@ -87,6 +84,7 @@ export function DayPanel({
     >
       <div
         onClick={(e) => e.stopPropagation()}
+        className="day-panel"
         style={{
           background: 'var(--paper-card)',
           width: '100%',

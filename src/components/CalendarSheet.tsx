@@ -51,7 +51,7 @@ export function CalendarSheet({
 
       {/* 页眉 */}
       <header
-        className="relative flex items-center justify-between"
+        className="header-row relative flex items-center justify-between"
         style={{ marginBottom: '10px', paddingTop: '2px' }}
       >
         {/* 左：产品名 */}

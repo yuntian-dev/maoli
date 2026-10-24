@@ -111,6 +111,50 @@ textarea {
   filter: saturate(0.92) contrast(0.98);
 }
 
+/* ---- 响应式：三档断点（PRD 6.6） ---- */
+@media (max-width: 1279px) {
+  :root {
+    --pad-page: 16px;
+    --cell-h: 100px;
+    --cell-head: 24px;
+    --cell-note-h: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --pad-page: 10px;
+    --cell-h: 74px;
+    --cell-head: 20px;
+    --cell-note-h: 17px;
+    --fs-date: 21px;
+    --fs-lunar: 9px;
+    --fs-note: 11px;
+  }
+}
+
+/* 手机端隐藏农历（空间不够） */
+@media (max-width: 767px) {
+  .lunar-cell {
+    display: none;
+  }
+  /* 页眉三栏在窄屏改为纵向堆叠 */
+  .header-row {
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+  .header-row > div:first-child,
+  .header-row > div:last-child {
+    min-width: auto !important;
+  }
+  /* 手机端详情面板全屏 */
+  .day-panel {
+    max-width: 100% !important;
+    max-height: 100vh !important;
+    border-radius: 0 !important;
+  }
+}
+
 /* ---- 滚动条 ---- */
 ::-webkit-scrollbar {
   width: 8px;

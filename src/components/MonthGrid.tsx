@@ -55,7 +55,7 @@ export function MonthGrid({ slots, cells, onSelect }: MonthGridProps) {
             <div
               key={`blank-${i}`}
               style={{
-                height: '116px',
+                height: 'var(--cell-h)',
                 borderRight: '1px solid var(--line)',
                 borderBottom: '1px solid var(--line)',
                 background: 'var(--paper-blank)',

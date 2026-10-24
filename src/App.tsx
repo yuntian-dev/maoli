@@ -133,7 +133,7 @@ export default function App() {
 
   return (
     <div
-      className="min-h-full"
+      className="min-h-full app-shell"
       style={{
         padding: '28px 24px 72px',
         background:
@@ -186,7 +186,6 @@ export default function App() {
       {/* 日详情面板 */}
       <DayPanel
         date={panelDate}
-        pet={pet}
         record={panelDate ? records[panelDate] : undefined}
         onClose={() => setPanelDate(null)}
         onSave={(rec) => {

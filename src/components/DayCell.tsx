@@ -48,7 +48,7 @@ export function DayCell({
       className="relative flex flex-col overflow-hidden text-left"
       style={{
         // 真挂历的格子是扁矩形（宽 > 高），不是正方形
-        height: '116px',
+        height: 'var(--cell-h)',
         background: 'var(--paper-card)',
         borderRight: '1px solid var(--line)',
         borderBottom: '1px solid var(--line)',
@@ -60,7 +60,7 @@ export function DayCell({
       {/* 顶部：日期 + 农历 + 红点 */}
       <div
         className="relative flex shrink-0 items-start justify-between"
-        style={{ padding: '4px 5px 0 6px', height: '26px' }}
+        style={{ padding: '4px 5px 0 6px', height: 'var(--cell-head)' }}
       >
         <span
           className="font-serif leading-none"
@@ -75,7 +75,7 @@ export function DayCell({
 
         {showLunar && lunarText && (
           <span
-            className="leading-none"
+            className="lunar-cell leading-none"
             style={{
               fontSize: 'var(--fs-lunar)',
               color: 'var(--ink-faint)',
@@ -113,8 +113,8 @@ export function DayCell({
           position: 'absolute',
           left: '6px',
           right: '5px',
-          top: '28px',
-          bottom: note ? '21px' : '4px',
+          top: 'var(--cell-head)',
+          bottom: note ? 'var(--cell-note-h)' : '4px',
         }}
       >
         {status === 'recorded' && photoUrl ? (

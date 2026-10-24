@@ -41,6 +41,11 @@
   --gap-cell: 1px;
   --pad-page: 22px;
 
+  /* ---- 格子尺寸（响应式由 media query 覆盖）---- */
+  --cell-h: 116px;
+  --cell-head: 26px;
+  --cell-note-h: 21px;
+
   /* ---- 阴影 ---- */
   --shadow-page: 0 2px 4px rgba(0, 0, 0, 0.06), 0 12px 32px rgba(0, 0, 0, 0.1);
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.06);
