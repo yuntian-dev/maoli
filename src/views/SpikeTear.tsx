@@ -40,7 +40,7 @@ export function SpikeTear() {
       <TearSheet
         active={active}
         className="w-full"
-        style={{ maxWidth: '420px' }}
+        style={{ maxWidth: '420px', height: '300px' }}
       >
         <Paper
           style={{
